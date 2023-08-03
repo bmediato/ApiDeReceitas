@@ -63,12 +63,12 @@ public class RecipesController : ControllerBase
   [HttpPut("{name}")]
   public IActionResult Update(string name, [FromBody] Recipe recipe)
   {
-    if (!_service.RecipeExists(name))
+    if (_service.RecipeExists(name))
     {
-      return NotFound();
+      _service.UpdateRecipe(recipe);
+      return NoContent();
     }
-    _service.UpdateRecipe(recipe);
-    return NoContent();
+    return BadRequest();
 
   }
 
