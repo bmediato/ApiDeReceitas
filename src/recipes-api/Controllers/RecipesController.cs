@@ -55,9 +55,8 @@ public class RecipesController : ControllerBase
       return BadRequest();
     }
     _service.AddRecipe(recipe);
-    var newRecipe = _service.GetRecipe(recipe.Name);
 
-    return Ok(newRecipe);
+    return CreatedAtRoute("GetRecipe", new { name = recipe.Name }, recipe);
   }
 
   // 4 - Sua aplicação deve ter o endpoint PUT /recipe
