@@ -26,7 +26,7 @@ public class CommentController : ControllerBase
   {
     _service.AddComment(comment);
 
-    return CreatedAtRoute("GetComment", new { email = comment.Email }, comment);
+    return CreatedAtRoute("GetComment", new { name = comment.RecipeName }, comment);
   }
 
   // 11 - Sua aplicação deve ter o endpoint GET /comment/:recipeName
