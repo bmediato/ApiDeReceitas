@@ -66,7 +66,7 @@ public class RecipesController : ControllerBase
   {
     if (!_service.RecipeExists(name))
     {
-      return BadRequest();
+      return NotFound();
     }
     _service.UpdateRecipe(recipe);
     return NoContent();
